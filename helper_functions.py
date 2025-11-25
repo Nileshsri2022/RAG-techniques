@@ -1,9 +1,10 @@
-from langchain_community.document_loaders import PyPDFLoader
+# FIXED IMPORTS FOR LANGCHAIN 0.2+
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.document_loaders import PyPDFLoader
 from langchain_openai import OpenAIEmbeddings
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 from langchain_core.pydantic_v1 import BaseModel, Field
-from langchain import PromptTemplate
+from langchain.prompts import PromptTemplate
 from openai import RateLimitError
 from typing import List
 from rank_bm25 import BM25Okapi
@@ -13,6 +14,7 @@ import random
 import textwrap
 import numpy as np
 from enum import Enum
+
 
 
 def replace_t_with_space(list_of_documents):
